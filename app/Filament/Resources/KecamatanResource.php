@@ -18,6 +18,16 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\ColorPicker;
 class KecamatanResource extends Resource
 {
+    public static function getPluralModelLabel(): string
+    {
+        return 'Kecamatan';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Kecamatan';
+    }
+
     protected static ?string $model = Kecamatan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

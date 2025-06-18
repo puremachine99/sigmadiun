@@ -18,6 +18,16 @@ use App\Filament\Resources\PotensiResource\RelationManagers;
 
 class PotensiResource extends Resource
 {
+    public static function getPluralModelLabel(): string
+    {
+        return 'Potensi / Sektor Bisnis';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Potensi / Sektor Bisnis';
+    }
+
     protected static ?string $model = Potensi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

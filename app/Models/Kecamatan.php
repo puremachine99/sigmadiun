@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Kecamatan extends Model
 {
-    protected $fillable = ['nama', 'geojson', 'color','jumlah_penduduk']; 
+    protected $fillable = ['nama', 'geojson', 'color', 'jumlah_penduduk'];
 
 
     protected $casts = [
@@ -28,4 +28,9 @@ class Kecamatan extends Model
             $model->slug = Str::slug($model->nama);
         });
     }
+    public function kelurahans()
+    {
+        return $this->hasMany(Kelurahan::class);
+    }
+
 }

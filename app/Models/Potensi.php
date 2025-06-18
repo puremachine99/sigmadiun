@@ -10,4 +10,10 @@ class Potensi extends Model
         'name',
         'description',
     ];
+
+    public function umkms()
+    {
+        return $this->hasMany(Umkm::class);
+    }
+
 }
