@@ -7,9 +7,9 @@ use App\Http\Controllers\PetaController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 // dummy map
-Route::get('/peta-potensi', [PetaController::class, 'index'])->name('peta.index');
-
-Route::get('/peta-potensi/{kecamatan:slug}', [PetaController::class, 'show'])->name('peta.show');
-
+Route::prefix('peta-potensi')->name('peta.')->group(function () {
+    Route::get('/', [PetaController::class, 'index'])->name('index');
+    Route::get('/{kecamatan:slug}', [PetaController::class, 'show'])->name('show');
+});
 
 
