@@ -16,9 +16,8 @@
             <div class="hidden md:flex space-x-8">
                 <a href="{{ route('home') }}"
                     class="nav-link font-medium {{ $active === 'home' ? 'text-primary' : 'text-dark hover:text-primary' }}">Beranda</a>
-                <a href="#"
-                    class="nav-link font-medium {{ $active === 'profil' ? 'text-primary' : 'text-dark hover:text-primary' }}">Profil
-                    Daerah</a>
+                <a href="{{ route('profil') }}"
+                    class="nav-link font-medium {{ $active === 'profil' ? 'text-primary' : 'text-dark hover:text-primary' }}">Profil Daerah</a>
                 <a href="#"
                     class="nav-link font-medium {{ $active === 'potensi' ? 'text-primary' : 'text-dark hover:text-primary' }}">Potensi</a>
                 <a href="#"

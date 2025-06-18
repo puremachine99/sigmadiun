@@ -156,6 +156,7 @@
         $currentRoute = Route::currentRouteName();
         $activeMenu = match (true) {
             $currentRoute && str_starts_with($currentRoute, 'home') => 'home',
+            $currentRoute && str_starts_with($currentRoute, 'profil') => 'profil',
             $currentRoute && str_starts_with($currentRoute, 'potensi') => 'potensi',
             $currentRoute && str_starts_with($currentRoute, 'umkm') => 'umkm',
             $currentRoute && str_starts_with($currentRoute, 'peta') => 'peta',
