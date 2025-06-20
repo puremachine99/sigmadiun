@@ -16,11 +16,11 @@
             <div class="hidden md:flex space-x-8">
                 <a href="{{ route('home') }}"
                     class="nav-link font-medium {{ $active === 'home' ? 'text-primary' : 'text-dark hover:text-primary' }}">Beranda</a>
-                <a href="{{ route('profil') }}"
+                <a href="{{ route('profil.index') }}"
                     class="nav-link font-medium {{ $active === 'profil' ? 'text-primary' : 'text-dark hover:text-primary' }}">Profil Daerah</a>
-                <a href="#"
+                <a href="{{ route('potensi.index') }}"
                     class="nav-link font-medium {{ $active === 'potensi' ? 'text-primary' : 'text-dark hover:text-primary' }}">Potensi</a>
-                <a href="#"
+                <a href="{{ route('umkm.index') }}"
                     class="nav-link font-medium {{ $active === 'umkm' ? 'text-primary' : 'text-dark hover:text-primary' }}">UMKM</a>
                 <a href="{{ route('peta.index') }}"
                     class="nav-link font-medium {{ $active === 'peta' ? 'text-primary' : 'text-dark hover:text-primary' }}">Peta</a>

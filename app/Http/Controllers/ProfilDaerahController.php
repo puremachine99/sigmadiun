@@ -15,7 +15,7 @@ class ProfilDaerahController extends Controller
                     TEXT;
 
 
-        return view('profil-daerah', [
+        return view('profil.index', [
             'deskripsi' => $deskripsi,
             'active' => 'profil',
         ]);

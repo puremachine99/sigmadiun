@@ -5,16 +5,21 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use App\Models\Umkm;
 use Filament\Tables;
+use App\Models\Potensi;
 use Filament\Forms\Form;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Dotswan\MapPicker\Fields\Map;
 use Filament\Forms\Components\Grid;
+use Humaidem\FilamentMapPicker\Fields\OSMMap;
 use Illuminate\Support\Facades\Http;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Textarea;
+use Dotswan\MapPicker\Fields\MapPicker;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UmkmResource\Pages;
@@ -48,33 +53,7 @@ class UmkmResource extends Resource
 
                     TextInput::make('alamat')
                         ->label('Alamat Lengkap')
-                        ->reactive()
-                        ->afterStateUpdated(function ($state, callable $set) {
-                            if (strlen($state) > 5) {
-                                $url = 'https://nominatim.openstreetmap.org/search?' . http_build_query([
-                                    'q' => $state,
-                                    'format' => 'json',
-                                    'limit' => 1,
-                                    'addressdetails' => 1,
-                                ]);
-
-                                try {
-                                    $response = Http::withHeaders([
-                                        'User-Agent' => 'Laravel-Geocoder'
-                                    ])->get($url);
-
-                                    if ($response->successful() && count($response->json()) > 0) {
-                                        $location = $response->json()[0];
-                                        $set('latitude', $location['lat']);
-                                        $set('longitude', $location['lon']);
-                                    }
-                                } catch (\Throwable $e) {
-                                    // Log::error($e); // optional logging
-                                }
-                            }
-                        })
                         ->required(),
-
 
                     Select::make('kecamatan_id')
                         ->label('Kecamatan')
@@ -86,21 +65,36 @@ class UmkmResource extends Resource
                     Select::make('kelurahan_id')
                         ->label('Kelurahan')
                         ->required()
+                        ->reactive()
+                        ->placeholder('Pilih kecamatan terlebih dahulu')
+                        ->disabled(fn(callable $get) => !$get('kecamatan_id'))
                         ->options(function (callable $get) {
-                            return Kelurahan::where('kecamatan_id', $get('kecamatan_id'))
-                                ->pluck('nama', 'id');
+                            $kecamatanId = $get('kecamatan_id');
+                            if (!$kecamatanId)
+                                return [];
+                            return Kelurahan::where('kecamatan_id', $kecamatanId)->pluck('nama', 'id');
                         }),
 
-                    Select::make('sektor')
+                    // OSMMap::make('lokasi')
+                    //     ->label('Tentukan Lokasi Usaha')
+                    //     ->showMarker()
+                    //     ->draggable()
+                    //     ->mapHeight('300px')
+                    //     ->defaultCoordinates([-7.6295, 111.5231]) // Madiun center
+                    //     ->tilesUrl('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+                    //     ->extraControl([
+                    //         'zoomDelta' => 1,
+                    //         'zoomSnap' => 0.25,
+                    //         'wheelPxPerZoomLevel' => 60
+                    //     ])
+                    //     ->required(), // mboh ! emg ank anj
+
+                    Select::make('potensi_id')
                         ->label('Sektor Usaha')
-                        ->options([
-                            'kuliner' => 'Kuliner 🍜',
-                            'pertanian' => 'Pertanian 🌾',
-                            'kerajinan' => 'Kerajinan 🧵',
-                            'jasa' => 'Jasa 💼',
-                            'perdagangan' => 'Perdagangan 🛒',
-                        ])
-                        ->required(),
+                        ->options(Potensi::pluck('name', 'id'))
+                        ->searchable()
+                        ->required()
+                        ->placeholder('Pilih sektor usaha'),
 
                     TextInput::make('kontak')
                         ->label('Kontak WA/HP')
@@ -108,18 +102,64 @@ class UmkmResource extends Resource
                         ->required(),
                 ]),
 
-
+                Hidden::make('latitude'),
+                Hidden::make('longitude'),
             ]);
+
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama_usaha')
+                    ->label('Nama Usaha')
+                    ->searchable()
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('alamat')
+                    ->label('Alamat')
+                    ->limit(50)
+                    ->wrap()
+                    ->toggleable(),
+
+                Tables\Columns\TextColumn::make('kecamatan.nama')
+                    ->label('Kecamatan')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('kelurahan.nama')
+                    ->label('Kelurahan')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('potensi.name')
+                    ->label('Sektor Usaha')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('kontak')
+                    ->label('Kontak')
+                    ->copyable(),
+
+                Tables\Columns\TextColumn::make('latitude')
+                    ->label('Lat')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                Tables\Columns\TextColumn::make('longitude')
+                    ->label('Lng')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->label('Dibuat')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                // (opsional) tambahkan filter berdasarkan kecamatan, sektor, dll.
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -130,6 +170,7 @@ class UmkmResource extends Resource
                 ]),
             ]);
     }
+
 
     public static function getRelations(): array
     {

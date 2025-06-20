@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\Kecamatan;
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\KelurahanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\KelurahanResource\RelationManagers;
+use function Laravel\Prompts\text;
 
 class KelurahanResource extends Resource
 {
@@ -38,14 +40,12 @@ class KelurahanResource extends Resource
                 Select::make('kecamatan_id')
                     ->label('Kecamatan')
                     ->options(Kecamatan::pluck('nama', 'id'))
-                    ->reactive()
                     ->afterStateUpdated(fn(callable $set) => $set('kelurahan_id', null)),
 
-                Select::make('kelurahan_id')
+                TextInput::make('nama')
                     ->label('Kelurahan')
-                    ->options(function (callable $get) {
-                        return Kelurahan::where('kecamatan_id', $get('kecamatan_id'))->pluck('nama', 'id');
-                    }),
+                    ->required(),
+
             ]);
     }
 
