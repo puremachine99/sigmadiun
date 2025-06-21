@@ -3,35 +3,37 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use function Laravel\Prompts\text;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\MarkdownEditor;
 use App\Filament\Resources\KelurahanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\KelurahanResource\RelationManagers;
-use function Laravel\Prompts\text;
 
 class KelurahanResource extends Resource
 {
     public static function getPluralModelLabel(): string
     {
-        return 'Kelurahan';
+        return 'Daftar Kelurahan';
     }
 
     public static function getModelLabel(): string
     {
-        return 'Kelurahan';
+        return 'Daftar Kelurahan';
     }
 
+    protected static ?string $navigationGroup = 'Data Geospasial';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
+    protected static ?int $navigationSort = 5;
     protected static ?string $model = Kelurahan::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -46,6 +48,10 @@ class KelurahanResource extends Resource
                     ->label('Kelurahan')
                     ->required(),
 
+                MarkdownEditor::make('description')
+                    ->label('Deskripsi Kelurahan')
+                    ->columnSpanFull()
+                    ->maxLength(10000),
             ]);
     }
 

@@ -33,6 +33,24 @@
             min-height: 100vh;
         }
 
+        .blink-fade {
+            animation: blinkFade 1.2s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes blinkFade {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -149,7 +167,7 @@
     </style>
 </head>
 
-<body class="font-sans text-slate-800 bg-light">
+<body class="font-sans text-slate-800 bg-light flex flex-col min-h-screen">
     @php
         use Illuminate\Support\Facades\Route;
 

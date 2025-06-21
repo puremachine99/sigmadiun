@@ -29,7 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
 
     <script>
-        const map = L.map('map').setView([-7.6295, 111.5231], 12);
+        const map = L.map('map').setView([-7.577905, 111.668270], 11);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap'
@@ -68,7 +68,7 @@
                         if (!luas) {
                             try {
                                 const area = turf.area(feature);
-                                luas = (area / 1_000_000).toFixed(2);
+                                luas = (area / 10_000).toFixed(2);
                             } catch (e) {
                                 console.warn('Gagal hitung luas dengan turf:', e);
                                 luas = 'Tidak tersedia';
@@ -79,7 +79,7 @@
                             <div class="text-sm leading-tight">
                                 <div><span class="font-medium text-gray-700">Kecamatan:</span> ${district}</div>
                                 <div><span class="font-medium text-gray-700">Kelurahan:</span> ${village}</div>
-                                <div><span class="font-medium text-gray-700">Luas Wilayah:</span> ${luas} km²</div>
+                                <div><span class="font-medium text-gray-700">Luas Wilayah:</span> ${luas} Ha</div>
                             </div>
                         `;
 

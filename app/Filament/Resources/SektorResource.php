@@ -4,48 +4,46 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Potensi;
+use App\Models\Sektor;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\PotensiResource\Pages;
+use App\Filament\Resources\SektorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\PotensiResource\RelationManagers;
+use App\Filament\Resources\SektorResource\RelationManagers;
 
-class PotensiResource extends Resource
+class SektorResource extends Resource
 {
     public static function getPluralModelLabel(): string
     {
-        return 'Daftar Potensi';
+        return 'Daftar Sektor';
     }
 
     public static function getModelLabel(): string
     {
-        return 'Daftar Potensi';
+        return 'Daftar Sektor';
     }
     protected static ?string $navigationGroup = 'Data Geospasial';
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
-    protected static ?int $navigationSort = 2;
-    protected static ?string $model = Potensi::class;
+    protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
+    protected static ?int $navigationSort = 1;
+    protected static ?string $model = Sektor::class;
 
     public static function form(Form $form): Form
     {
         return $form->schema([
-            TextInput::make('name')
+
+            TextInput::make('nama')
+                ->label('Nama Sektor')
                 ->required()
                 ->maxLength(255),
-
-            Textarea::make('description')
+            Textarea::make('deskripsi')
                 ->label('Deskripsi')
-                ->rows(5)
-                ->required()
-                ->maxLength(300),
-
-
+                ->maxLength(1000),
         ]);
     }
 
@@ -53,9 +51,11 @@ class PotensiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->searchable()->sortable(),
-                TextColumn::make('description')->limit(50),
-            ])
+                TextColumn::make('nama')->label('Nama')->searchable(),
+                TextColumn::make('sektor.nama')->label('Sektor')->searchable(),
+                TextColumn::make('deskripsi')->label('Deskripsi')->limit(50),
+                TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y'),
+            ])->defaultSort('nama')
             ->filters([
                 //
             ])
@@ -63,10 +63,11 @@ class PotensiResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
             ]);
     }
-
 
     public static function getRelations(): array
     {
@@ -78,9 +79,9 @@ class PotensiResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPotensis::route('/'),
-            'create' => Pages\CreatePotensi::route('/create'),
-            'edit' => Pages\EditPotensi::route('/{record}/edit'),
+            'index' => Pages\ListSektors::route('/'),
+            'create' => Pages\CreateSektor::route('/create'),
+            'edit' => Pages\EditSektor::route('/{record}/edit'),
         ];
     }
 }

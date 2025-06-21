@@ -38,9 +38,11 @@ class UmkmResource extends Resource
         return 'UMKM';
     }
 
-    protected static ?string $model = Umkm::class;
+    protected static ?string $navigationGroup = 'Data Geospasial';
+    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 6;
+    protected static ?string $model = Umkm::class;
 
     public static function form(Form $form): Form
     {
