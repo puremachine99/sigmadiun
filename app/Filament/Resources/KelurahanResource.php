@@ -29,7 +29,10 @@ class KelurahanResource extends Resource
     {
         return 'Daftar Kelurahan';
     }
-
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $navigationGroup = 'Data Geospasial';
     protected static ?string $navigationIcon = 'heroicon-o-home-modern';
     protected static ?int $navigationSort = 5;

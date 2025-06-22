@@ -25,7 +25,10 @@ class KecamatanResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-map';
     protected static ?string $navigationGroup = 'Data Geospasial';
     protected static ?int $navigationSort = 4;
-
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     public static function getPluralModelLabel(): string
     {
         return 'Daftar Kecamatan';

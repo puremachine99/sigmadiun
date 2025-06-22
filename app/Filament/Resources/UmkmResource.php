@@ -40,7 +40,10 @@ class UmkmResource extends Resource
 
     protected static ?string $navigationGroup = 'Data Geospasial';
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
-
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?int $navigationSort = 6;
     protected static ?string $model = Umkm::class;
 

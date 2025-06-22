@@ -30,6 +30,10 @@ class PotensiResource extends Resource
     protected static ?string $navigationGroup = 'Data Geospasial';
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
     protected static ?int $navigationSort = 2;
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $model = Potensi::class;
 
     public static function form(Form $form): Form

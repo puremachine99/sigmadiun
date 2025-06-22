@@ -24,6 +24,10 @@ class ArtikelResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
     protected static ?string $navigationGroup = 'Manajemen Konten';
     protected static ?string $navigationLabel = 'Artikel';
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?int $navigationSort = 7;
     public static function form(Form $form): Form
     {

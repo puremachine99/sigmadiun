@@ -31,6 +31,10 @@ class SektorResource extends Resource
     protected static ?string $navigationGroup = 'Data Geospasial';
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
     protected static ?int $navigationSort = 1;
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $model = Sektor::class;
 
     public static function form(Form $form): Form
