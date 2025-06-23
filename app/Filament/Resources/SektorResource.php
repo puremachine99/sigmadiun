@@ -45,6 +45,7 @@ class SektorResource extends Resource
                 ->label('Nama Sektor')
                 ->required()
                 ->maxLength(255),
+
             Textarea::make('deskripsi')
                 ->label('Deskripsi')
                 ->maxLength(1000),

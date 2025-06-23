@@ -28,143 +28,122 @@
         }
     </script>
     <style>
+        :root {
+            --primary: #1E3A8A;
+            /* Biru tua tegas dan profesional */
+            --primary-dark: #0F2A5F;
+            /* Variasi biru lebih gelap */
+            --primary-light: #3B82F6;
+            /* Biru cerah untuk aksen */
+            --secondary: #D4AF37;
+            /* Emas elegan untuk highlight */
+            --accent: #2563EB;
+            /* Biru medium untuk penekanan */
+            --light: #F8FAFC;
+            /* Biru sangat muda untuk background */
+            --dark: #1F2937;
+            /* Biru tua untuk teks */
+            --neutral: #4B5563;
+            /* Abu-abu biru untuk teks sekunder */
+        }
+
         body {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
             min-height: 100vh;
+            color: var(--dark);
         }
 
-        .blink-fade {
-            animation: blinkFade 1.2s infinite ease-in-out;
-            display: inline-block;
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(30, 58, 138, 0.1);
         }
 
-        @keyframes blinkFade {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
+        .hero-section {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(15, 42, 95, 0.9)),
+                url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
         }
 
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .map-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(30, 58, 138, 0.25);
         }
 
-        .kecamatan-card {
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 16px;
-            overflow: hidden;
+        .section-title {
+            color: var(--primary);
         }
 
-        .kecamatan-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        .section-title:after {
+            background: var(--secondary);
         }
 
-        .feature-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 10;
-        }
-
-        .legend-item {
-            transition: all 0.2s ease;
-            border-radius: 10px;
-        }
-
-        .legend-item:hover {
-            background: rgba(37, 99, 235, 0.05);
-            transform: translateX(5px);
-        }
-
-        .stat-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #e2e8f0;
-            overflow: hidden;
-        }
-
-        .stat-fill {
-            height: 100%;
-            border-radius: 4px;
-        }
-
-        .activity-item {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .activity-item::before {
-            content: "";
-            position: absolute;
-            left: 8px;
-            top: 16px;
-            width: 2px;
-            height: calc(100% - 16px);
-            background: #cbd5e1;
-        }
-
-        .activity-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .nav-link {
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        .nav-link::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: #2563eb;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .custom-tooltip {
+        .stat-card {
             background: white;
-            border-radius: 6px;
-            padding: 8px 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            color: #1f2937;
-            font-family: 'Inter', sans-serif;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 25px rgba(30, 58, 138, 0.1);
+        }
+
+        .stat-number {
+            color: var(--primary);
+        }
+
+        .commitment-section {
+            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(15, 42, 95, 0.95)),
+                url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .quote-text {
+            border-left: 4px solid var(--secondary);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Animasi khusus untuk elegan */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-section {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
+
 </head>
 
 <body class="font-sans text-slate-800 bg-light flex flex-col min-h-screen">

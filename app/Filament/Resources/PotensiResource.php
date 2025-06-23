@@ -8,6 +8,7 @@ use App\Models\Potensi;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -39,10 +40,15 @@ class PotensiResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            TextInput::make('name')
+            TextInput::make('nama')
                 ->required()
                 ->maxLength(255),
-
+            Select::make('sektor_id')
+                ->label('Sektor')
+                ->relationship('sektor', 'nama')
+                ->searchable()
+                ->preload()
+                ->nullable(),
             Textarea::make('description')
                 ->label('Deskripsi')
                 ->rows(5)
@@ -57,8 +63,12 @@ class PotensiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->searchable()->sortable(),
-                TextColumn::make('description')->limit(50),
+                TextColumn::make('nama')->searchable()->sortable(),
+                TextColumn::make('sektor.nama')
+                    ->label('Sektor')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('description')->limit(25),
             ])
             ->filters([
                 //

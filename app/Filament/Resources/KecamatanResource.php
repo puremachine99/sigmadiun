@@ -80,7 +80,9 @@ class KecamatanResource extends Resource
             Textarea::make('geojson')
                 ->label('Denah Lahan (GeoJSON)')
                 ->rows(10)
-                ->required(),
+                ->required()
+                ->disabled(fn() => !auth()->user()?->hasRole('super_admin')),
+
 
             MarkdownEditor::make('description')
                 ->label('Deskripsi Kecamatan')

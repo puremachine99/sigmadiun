@@ -8,7 +8,9 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -74,15 +76,34 @@ class UserResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('name')->required(),
-            Forms\Components\TextInput::make('email')->email()->required(),
-            Forms\Components\TextInput::make('username')->required(),
-            Forms\Components\Select::make('roles')
+            TextInput::make('name')->required(),
+            TextInput::make('email')->email()->required(),
+            TextInput::make('username')->required(),
+            Select::make('roles')
                 ->label('Roles')
-                ->relationship('roles', 'name')
                 ->multiple()
-                ->preload(),
-            Forms\Components\TextInput::make('password')
+                ->preload()
+                ->relationship('roles', 'name')
+                ->options(function () {
+                    $user = auth()->user();
+
+                    // Default: semua role
+                    $roles = \Spatie\Permission\Models\Role::all();
+
+                    if ($user->hasRole('admin')) {
+                        // Admin hanya boleh memilih role di bawahnya (admin dan author)
+                        return $roles->whereIn('name', ['admin', 'author'])->pluck('name', 'id');
+                    }
+
+                    if ($user->hasRole('author')) {
+                        // Author hanya boleh pilih author saja
+                        return $roles->where('name', 'author')->pluck('name', 'id');
+                    }
+
+                    // Super admin bisa lihat semua
+                    return $roles->pluck('name', 'id');
+                }),
+            TextInput::make('password')
                 ->password()
                 ->dehydrateStateUsing(fn($state) => \Hash::make($state))
                 ->required(fn(string $context): bool => $context === 'create'),

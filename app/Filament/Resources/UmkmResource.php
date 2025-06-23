@@ -38,7 +38,7 @@ class UmkmResource extends Resource
         return 'UMKM';
     }
 
-    protected static ?string $navigationGroup = 'Data Geospasial';
+    protected static ?string $navigationGroup = 'Investasi';
     protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
     public static function getNavigationBadge(): ?string
     {

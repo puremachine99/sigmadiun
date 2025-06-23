@@ -25,13 +25,21 @@ class StatistikInvestasiOverview extends StatsOverviewWidget
                 ->descriptionIcon('heroicon-m-map')
                 ->color('primary'),
 
+            // Stat::make(
+            //     'Total Nilai Investasi Kecamatan',
+            //     'Rp ' . number_format(Kecamatan::sum('nilai_investasi'), 0, ',', '.')
+            // )
+            //     ->description('Total nilai investasi dari data kecamatan')
+            //     ->descriptionIcon('heroicon-m-banknotes')
+            //     ->color('success'),
+
             Stat::make(
-                'Total Nilai Investasi',
-                'Rp ' . number_format(Kecamatan::sum('nilai_investasi'), 0, ',', '.')
+                'Total Nilai Investasi Investor',
+                'Rp ' . number_format(\App\Models\Investor::sum('nilai_investasi'), 0, ',', '.')
             )
-                ->description('Total nilai investasi aktif')
+                ->description('Total nilai investasi dari data investor')
                 ->descriptionIcon('heroicon-m-banknotes')
-                ->color('success'),
+                ->color('emerald'),
 
             Stat::make(
                 'Jumlah Penduduk',
@@ -43,7 +51,7 @@ class StatistikInvestasiOverview extends StatsOverviewWidget
 
             Stat::make(
                 'Jumlah Potensi',
-                Potensi::count()
+                \App\Models\Potensi::count()
             )
                 ->description('Dari seluruh wilayah')
                 ->descriptionIcon('heroicon-m-light-bulb')
@@ -51,20 +59,21 @@ class StatistikInvestasiOverview extends StatsOverviewWidget
 
             Stat::make(
                 'Jumlah Peluang',
-                Peluang::count()
+                \App\Models\Peluang::count()
             )
                 ->description('Peluang terbuka saat ini')
                 ->descriptionIcon('heroicon-m-rocket-launch')
                 ->color('warning'),
 
             Stat::make(
-                'Jumlah Sektor',
-                Sektor::count()
+                'Jumlah Investor',
+                \App\Models\Investor::count()
             )
-                ->description('Sektor yang terdata')
-                ->descriptionIcon('heroicon-m-cube')
+                ->description('Investor yang terdata')
+                ->descriptionIcon('heroicon-m-users')
                 ->color('secondary'),
         ];
+
     }
 
 }

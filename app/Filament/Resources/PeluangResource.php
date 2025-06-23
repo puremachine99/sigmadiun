@@ -8,6 +8,7 @@ use App\Models\Peluang;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -40,9 +41,15 @@ class PeluangResource extends Resource
     {
         return $form->schema([
             TextInput::make('nama')
-                ->label('Nama Sektor')
+                ->label('Nama Peluang')
                 ->required()
                 ->maxLength(255),
+            Select::make('sektor_id')
+                ->label('Sektor')
+                ->relationship('sektor', 'nama')
+                ->searchable()
+                ->preload()
+                ->nullable(),
             Textarea::make('deskripsi')
                 ->label('Deskripsi')
                 ->maxLength(1000),
@@ -54,8 +61,11 @@ class PeluangResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama')->label('Nama')->searchable(),
-                TextColumn::make('deskripsi')->label('Deskripsi')->limit(50),
-                TextColumn::make('created_at')->label('Dibuat')->dateTime('d M Y'),
+                TextColumn::make('sektor.nama')
+                    ->label('Sektor')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('description')->limit(25),
             ])->defaultSort('nama')
             ->filters([
                 //
