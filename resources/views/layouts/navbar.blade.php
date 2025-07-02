@@ -9,44 +9,12 @@
                     <i class="fas fa-map-marker-alt text-white text-lg"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-xl text-gray-900 tracking-tight">SIG<span class="text-blue-600">Madiun</span></span>
-                    <p class="text-xs text-gray-500 -mt-1 tracking-wider">Sistem Informasi Geografis</p>
+                    <span class="font-bold text-xl text-gray-900 tracking-tight">Client<span class="text-blue-600">Apps</span></span>
+                    <p class="text-xs text-gray-500 -mt-1 tracking-wider">Dummy SSO hehe</p>
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="{{ route('home') }}"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'home' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    Beranda
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('profil.index') }}"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'profil' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    Profil Daerah
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('potensi.index') }}"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'potensi' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    Potensi
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('umkm.index') }}"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'umkm' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    UMKM
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="{{ route('peta.index') }}"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'peta' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    Peta
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'faq' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    FAQ
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </div>
+
 
             <!-- Mobile Menu Button -->
             <div class="flex items-center space-x-4">
@@ -68,38 +36,7 @@
          x-transition:leave-end="opacity-0 scale-95"
          class="md:hidden bg-white border-t border-gray-200 py-4 shadow-inner">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col space-y-3">
-                <a href="{{ route('home') }}"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'home' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-home mr-3 w-5 text-center"></i>
-                    Beranda
-                </a>
-                <a href="{{ route('profil.index') }}"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'profil' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-building mr-3 w-5 text-center"></i>
-                    Profil Daerah
-                </a>
-                <a href="{{ route('potensi.index') }}"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'potensi' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
-                    Potensi
-                </a>
-                <a href="{{ route('umkm.index') }}"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'umkm' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-store mr-3 w-5 text-center"></i>
-                    UMKM
-                </a>
-                <a href="{{ route('peta.index') }}"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'peta' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-map mr-3 w-5 text-center"></i>
-                    Peta
-                </a>
-                <a href="#"
-                    class="nav-link py-3 px-4 rounded-lg transition-all duration-300 flex items-center {{ $active === 'faq' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700 hover:bg-gray-50' }}">
-                    <i class="fas fa-question-circle mr-3 w-5 text-center"></i>
-                    FAQ
-                </a>
-            </div>
+     
         </div>
     </div>
 </nav>
