@@ -392,8 +392,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="sector-card">
-                        <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Agribisnis" class="sector-img">
+                        <img src="/images/agribisnis.jpeg" alt="Agribisnis" class="sector-img">
                         <div class="sector-content">
                             <div class="sector-icon">
                                 <i class="fas fa-tractor"></i>
@@ -407,8 +406,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="sector-card">
-                        <img src="https://images.unsplash.com/photo-1591696205602-2f950c417dad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Perikanan" class="sector-img">
+                        <img src="/images/perikanan.jpeg" alt="Perikanan" class="sector-img">
                         <div class="sector-content">
                             <div class="sector-icon">
                                 <i class="fas fa-fish"></i>
@@ -422,8 +420,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="sector-card">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Industri Kreatif" class="sector-img">
+                        <img src="/images/industri-kreatif.jpeg" alt="Industri Kreatif" class="sector-img">
                         <div class="sector-content">
                             <div class="sector-icon">
                                 <i class="fas fa-paint-brush"></i>
@@ -437,8 +434,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="sector-card">
-                        <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Pariwisata" class="sector-img">
+                        <img src="/images/pariwisata.png" alt="Pariwisata" class="sector-img">
                         <div class="sector-content">
                             <div class="sector-icon">
                                 <i class="fas fa-mountain"></i>
@@ -452,8 +448,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="sector-card">
-                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Logistik" class="sector-img">
+                        <img src="/images/logistik.jpeg" alt="Logistik" class="sector-img">
                         <div class="sector-content">
                             <div class="sector-icon">
                                 <i class="fas fa-truck"></i>
@@ -492,8 +487,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src="https://images.unsplash.com/photo-1600857062241-98c0b05794b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Kerajinan Bambu" class="ummg-img">
+                        <img src="/images/kerajinan-bambu.jpeg" alt="Kerajinan Bambu" class="umkm-img">
                         <div class="p-4">
                             <h4>Kerajinan Bambu Madiun</h4>
                             <p class="text-muted">Kerajinan & Handicraft</p>
@@ -504,8 +498,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Keripik Pisang" class="ummg-img">
+                        <img src="/images/keripik-pisang.jpeg" alt="Keripik Pisang" class="umkm-img">
                         <div class="p-4">
                             <h4>Keripik Pisang Madiun</h4>
                             <p class="text-muted">Makanan Olahan</p>
@@ -516,8 +509,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Konveksi" class="ummg-img">
+                        <img src="/images/konveksi-batik.jpeg" alt="Konveksi" class="umkm-img">
                         <div class="p-4">
                             <h4>Konveksi Batik Madiun</h4>
                             <p class="text-muted">Tekstil & Fashion</p>
@@ -548,11 +540,11 @@
                             daerah.</p>
                         <div class="mt-4 d-flex align-items-center">
                             <div class="bg-white rounded-circle" style="width: 80px; height: 80px; overflow: hidden;">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                                <img src="#"
                                     alt="Bupati" class="img-fluid">
                             </div>
                             <div class="ms-3">
-                                <h4 class="mb-0">H. Ahmad Dawami, S.Sos</h4>
+                                <h4 class="mb-0">John Doe</h4>
                                 <p class="mb-0">Bupati Madiun</p>
                             </div>
                         </div>

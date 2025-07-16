@@ -11,7 +11,7 @@
                         <div class="text-primary text-4xl mb-3">
                             <i class="fas fa-seedling"></i>
                         </div>
-                        <h2 class="text-lg font-semibold text-gray-700">{{ $potensi->name }}</h2>
+                        <h2 class="text-lg font-semibold text-gray-700">{{ $potensi->nama }}</h2>
                         <p class="text-sm text-gray-500 mt-2">{{ $potensi->description ?? 'Belum ada deskripsi.' }}</p>
                     </a>
 

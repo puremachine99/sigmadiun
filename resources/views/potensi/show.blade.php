@@ -12,7 +12,7 @@
                         <a href="{{ route('potensi.show', $item->id) }}"
                             class="block text-sm px-4 py-2 rounded-md border transition
                             {{ $item->id == $potensi->id ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-gray-100' }}">
-                            {{ $item->name }}
+                            {{ $item->nama }}
                         </a>
                     @endforeach
                 </div>

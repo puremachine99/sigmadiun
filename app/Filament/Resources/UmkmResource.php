@@ -96,7 +96,7 @@ class UmkmResource extends Resource
 
                     Select::make('potensi_id')
                         ->label('Sektor Usaha')
-                        ->options(Potensi::pluck('name', 'id'))
+                        ->options(Potensi::pluck('nama', 'id'))
                         ->searchable()
                         ->required()
                         ->placeholder('Pilih sektor usaha'),
