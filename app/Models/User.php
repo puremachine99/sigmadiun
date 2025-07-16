@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-class User extends Authenticatable
+
+// ✅ Tambahkan: Import contract dan Panel class
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+
+class User extends Authenticatable implements FilamentUser // ✅ Tambahkan interface di sini
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
 
     /**
@@ -45,5 +48,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * ✅ Tambahkan: Izin akses ke Filament panel
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        \Log::info('canAccessPanel dipanggil oleh: ' . $this->email); // Untuk debug log
+        return true; // Atau gunakan logic: $this->hasRole('admin');
     }
 }
