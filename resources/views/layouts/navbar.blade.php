@@ -41,11 +41,6 @@
                     Peta
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="#"
-                    class="nav-link font-medium relative group transition-all duration-300 {{ $active === 'faq' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600' }}">
-                    FAQ
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-                </a>
             </div>
 
             <!-- Mobile Menu Button -->
