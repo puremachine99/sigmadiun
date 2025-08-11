@@ -293,7 +293,6 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Selamat Datang di Website Peta Potensi Kab Madiun</h1>
-                <h1 class="hero-title">Destinasi Investasi Tumbuh & Terukur</h1>
                 <p class="hero-subtitle">Didukung infrastruktur, UMKM dinamis, dan komitmen Pemkab</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="#potensi" class="btn btn-primary btn-lg">Lihat Potensi Investasi</a>
