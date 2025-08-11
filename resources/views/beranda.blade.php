@@ -403,67 +403,69 @@
                         <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="sector-card">
-                    <img src="{{ asset('images/perikanan.jpeg') }}" alt="Perikanan" class="sector-img">
-                    <div class="sector-content">
-                        <div class="sector-icon">
-                            <i class="fas fa-fish"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="https://images.unsplash.com/photo-1591696205602-2f950c417dad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Perikanan" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h3>Perikanan</h3>
+                            <p>Potensi perikanan air tawar dengan produksi tahunan lebih dari 12.000 ton dan
+                                pengembangan teknologi budidaya modern.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
-                        <h3>Perikanan</h3>
-                        <p>Potensi perikanan air tawar dengan produksi tahunan lebih dari 12.000 ton dan pengembangan teknologi budidaya modern.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="sector-card">
-                    <img src="{{ asset('images/industrikreatif.jpeg') }}" alt="Industri Kreatif" class="sector-img">
-                    <div class="sector-content">
-                        <div class="sector-icon">
-                            <i class="fas fa-paint-brush"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Industri Kreatif" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>Industri Kreatif</h3>
+                            <p>Sentra kerajinan tangan dan industri kreatif yang telah menembus pasar ekspor dengan
+                                lebih dari 500 pengrajin lokal.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
-                        <h3>Industri Kreatif</h3>
-                        <p>Sentra kerajinan tangan dan industri kreatif yang telah menembus pasar ekspor dengan lebih dari 500 pengrajin lokal.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="sector-card">
-                    <img src="{{ asset('images/pariwisata.png') }}" alt="Pariwisata" class="sector-img">
-                    <div class="sector-content">
-                        <div class="sector-icon">
-                            <i class="fas fa-mountain"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Pariwisata" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>Pariwisata</h3>
+                            <p>Destinasi wisata alam dan budaya yang menarik lebih dari 500.000 wisatawan setiap
+                                tahunnya.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
-                        <h3>Pariwisata</h3>
-                        <p>Destinasi wisata alam dan budaya yang menarik lebih dari 500.000 wisatawan setiap tahunnya.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="sector-card">
-                    <img src="{{ asset('images/logistik.jpeg') }}" alt="Logistik" class="sector-img">
-                    <div class="sector-content">
-                        <div class="sector-icon">
-                            <i class="fas fa-truck"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Logistik" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Logistik</h3>
+                            <p>Lokasi strategis di jalur distribusi Jawa Timur dengan akses tol dan jalur kereta api
+                                yang terintegrasi.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
-                        <h3>Logistik</h3>
-                        <p>Lokasi strategis di jalur distribusi Jawa Timur dengan akses tol dan jalur kereta api yang terintegrasi.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Peta Interaktif -->
     <section id="peta" class="py-5">
@@ -488,7 +490,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src={{ asset('images/kerajinanbambu.jpeg') }}
+                        <img src="https://images.unsplash.com/photo-1600857062241-98c0b05794b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                             alt="Kerajinan Bambu" class="ummg-img">
                         <div class="p-4">
                             <h4>Kerajinan Bambu Madiun</h4>
@@ -500,7 +502,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src="{{ asset('images/keripikpisang.jpeg') }}"
+                        <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                             alt="Keripik Pisang" class="ummg-img">
                         <div class="p-4">
                             <h4>Keripik Pisang Madiun</h4>
@@ -512,7 +514,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="umkm-card">
-                        <img src="{{ asset('images/konveksibatik.jpeg') }}"
+                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                             alt="Konveksi" class="ummg-img">
                         <div class="p-4">
                             <h4>Konveksi Batik Madiun</h4>
