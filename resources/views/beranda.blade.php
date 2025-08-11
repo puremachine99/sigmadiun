@@ -15,6 +15,7 @@
     body {
         font-family: 'Poppins', sans-serif;
         overflow-x: hidden;
+        line-height: 1.6;
     }
 
     .navbar {
@@ -45,6 +46,7 @@
         font-size: 3.5rem;
         font-weight: 800;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
     }
 
     .hero-subtitle {
@@ -82,13 +84,15 @@
         margin-bottom: 3rem;
         font-weight: 700;
         color: var(--primary);
+        text-align: center;
     }
 
     .section-title:after {
         content: "";
         position: absolute;
         bottom: -15px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 80px;
         height: 4px;
         background: var(--secondary);
@@ -102,6 +106,7 @@
         transition: all 0.3s;
         margin-bottom: 20px;
         background: white;
+        height: 100%;
     }
 
     .stat-card:hover {
@@ -128,6 +133,7 @@
         transition: all 0.4s;
         height: 100%;
         background: white;
+        margin-bottom: 30px;
     }
 
     .sector-card:hover {
@@ -156,6 +162,7 @@
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
     }
 
     .umkm-card {
@@ -164,6 +171,7 @@
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: all 0.3s;
+        height: 100%;
     }
 
     .umkm-card:hover {
@@ -171,7 +179,7 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .ummg-img {
+    .umkm-img {
         height: 200px;
         object-fit: cover;
         width: 100%;
@@ -208,12 +216,14 @@
 
     .contact-section {
         background-color: var(--light);
+        padding: 100px 0;
     }
 
     .form-control {
         padding: 15px;
         border-radius: 8px;
         margin-bottom: 20px;
+        border: 1px solid #ddd;
     }
 
     footer {
@@ -266,6 +276,7 @@
         z-index: 1000;
         opacity: 0.7;
         transition: all 0.3s;
+        display: none;
     }
 
     .back-to-top:hover {
@@ -273,6 +284,16 @@
         transform: translateY(-5px);
     }
 
+    /* Spacing adjustments */
+    section {
+        padding: 80px 0;
+    }
+
+    .bg-light {
+        background-color: var(--light) !important;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
         .hero-title {
             font-size: 2.5rem;
@@ -284,6 +305,33 @@
 
         .section-title {
             font-size: 1.8rem;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+
+        .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .hero-content .d-flex {
+            flex-direction: column;
         }
     }
 </style>
@@ -302,10 +350,10 @@
         </div>
     </section>
 
-    {{-- data makro --}}
+    <!-- Data Makro -->
     <section id="data-makro" class="py-5">
         <div class="container py-5">
-            <h2 class="section-title text-center">Data Makro Daerah</h2>
+            <h2 class="section-title">Data Makro Daerah</h2>
             <p class="text-center mb-5">
                 Kabupaten Madiun menawarkan skala dan kesiapan infrastruktur yang menjanjikan
             </p>
@@ -320,15 +368,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-md-4">
-                    <div class="stat-card">
-                        <div class="stat-number">Rp {{ $totalInvestasiDB }}</div>
-                        <div class="stat-label">Investasi Masuk</div>
-                        <div class="mt-3">
-                            <i class="fas fa-chart-line fa-3x text-muted"></i>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-number">Rp {{ $totalInvestasiInvestor }}</div>
@@ -338,7 +377,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-number">{{ $jumlahPenduduk }}</div>
@@ -348,7 +386,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mt-4">
+                <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-number">{{ $jumlahPotensi }}</div>
                         <div class="stat-label">Jenis Potensi</div>
@@ -357,7 +395,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mt-4">
+                <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-number">{{ $jumlahPeluang }}</div>
                         <div class="stat-label">Peluang Investasi</div>
@@ -366,7 +404,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mt-4">
+                <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-number">{{ $jumlahInvestor }}</div>
                         <div class="stat-label">Jumlah Investor</div>
@@ -384,22 +422,23 @@
     </section>
 
     <!-- Potensi Unggulan -->
- <section id="potensi" class="py-5 bg-light">
-    <div class="container py-5">
-        <h2 class="section-title text-center">Potensi Unggulan Daerah</h2>
-        <p class="text-center mb-5">Temukan sektor-sektor investasi yang menjadi andalan Kabupaten Madiun</p>
+    <section id="potensi" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Potensi Unggulan Daerah</h2>
+            <p class="text-center mb-5">Temukan sektor-sektor investasi yang menjadi andalan Kabupaten Madiun</p>
 
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="sector-card">
-                    <img src="{{ asset('images/agribisnis.jpeg') }}" alt="Agribisnis" class="sector-img">
-                    <div class="sector-content">
-                        <div class="sector-icon">
-                            <i class="fas fa-tractor"></i>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="{{ asset('images/agribisnis.jpeg') }}" alt="Agribisnis" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-tractor"></i>
+                            </div>
+                            <h3>Agribisnis</h3>
+                            <p>Kabupaten Madiun memiliki lahan pertanian subur seluas 50.000 hektar dengan produksi padi mencapai 500.000 ton per tahun.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
-                        <h3>Agribisnis</h3>
-                        <p>Kabupaten Madiun memiliki lahan pertanian subur seluas 50.000 hektar dengan produksi padi mencapai 500.000 ton per tahun.</p>
-                        <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -411,8 +450,7 @@
                                 <i class="fas fa-fish"></i>
                             </div>
                             <h3>Perikanan</h3>
-                            <p>Potensi perikanan air tawar dengan produksi tahunan lebih dari 12.000 ton dan
-                                pengembangan teknologi budidaya modern.</p>
+                            <p>Potensi perikanan air tawar dengan produksi tahunan lebih dari 12.000 ton dan pengembangan teknologi budidaya modern.</p>
                             <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
                     </div>
@@ -426,8 +464,7 @@
                                 <i class="fas fa-paint-brush"></i>
                             </div>
                             <h3>Industri Kreatif</h3>
-                            <p>Sentra kerajinan tangan dan industri kreatif yang telah menembus pasar ekspor dengan
-                                lebih dari 500 pengrajin lokal.</p>
+                            <p>Sentra kerajinan tangan dan industri kreatif yang telah menembus pasar ekspor dengan lebih dari 500 pengrajin lokal.</p>
                             <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
                     </div>
@@ -441,8 +478,7 @@
                                 <i class="fas fa-mountain"></i>
                             </div>
                             <h3>Pariwisata</h3>
-                            <p>Destinasi wisata alam dan budaya yang menarik lebih dari 500.000 wisatawan setiap
-                                tahunnya.</p>
+                            <p>Destinasi wisata alam dan budaya yang menarik lebih dari 500.000 wisatawan setiap tahunnya.</p>
                             <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
                     </div>
@@ -456,8 +492,21 @@
                                 <i class="fas fa-truck"></i>
                             </div>
                             <h3>Logistik</h3>
-                            <p>Lokasi strategis di jalur distribusi Jawa Timur dengan akses tol dan jalur kereta api
-                                yang terintegrasi.</p>
+                            <p>Lokasi strategis di jalur distribusi Jawa Timur dengan akses tol dan jalur kereta api yang terintegrasi.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="sector-card">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Energi Terbarukan" class="sector-img">
+                        <div class="sector-content">
+                            <div class="sector-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h3>Energi Terbarukan</h3>
+                            <p>Potensi pengembangan energi terbarukan dari sumber daya alam yang melimpah di Kabupaten Madiun.</p>
                             <a href="#" class="btn btn-outline-primary mt-3">Detail Sektor</a>
                         </div>
                     </div>
@@ -469,10 +518,10 @@
     <!-- Peta Interaktif -->
     <section id="peta" class="py-5">
         <div class="container py-5">
-            <h2 class="section-title text-center">Peta Potensi Investasi</h2>
+            <h2 class="section-title">Peta Potensi Investasi</h2>
             <p class="text-center mb-5">Temukan lokasi strategis untuk investasi di Kabupaten Madiun</p>
 
-            <div class="map-container mb-4" id="map"></div>
+            <div class="map-container" id="map"></div>
 
             <div class="text-center">
                 <a href="#" class="btn btn-primary btn-lg">Jelajahi Peta Interaktif</a>
@@ -483,14 +532,14 @@
     <!-- UMKM Showcase -->
     <section id="umkm" class="py-5 bg-light">
         <div class="container py-5">
-            <h2 class="section-title text-center">Potensi UMKM Lokal</h2>
+            <h2 class="section-title">Potensi UMKM Lokal</h2>
             <p class="text-center mb-5">Dinamika ekonomi dan peluang kolaborasi dengan UMKM Kabupaten Madiun</p>
 
-            <div class="row g-4">
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 mb-4">
                     <div class="umkm-card">
                         <img src="https://images.unsplash.com/photo-1600857062241-98c0b05794b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Kerajinan Bambu" class="ummg-img">
+                            alt="Kerajinan Bambu" class="umkm-img">
                         <div class="p-4">
                             <h4>Kerajinan Bambu Madiun</h4>
                             <p class="text-muted">Kerajinan & Handicraft</p>
@@ -499,10 +548,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="umkm-card">
                         <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Keripik Pisang" class="ummg-img">
+                            alt="Keripik Pisang" class="umkm-img">
                         <div class="p-4">
                             <h4>Keripik Pisang Madiun</h4>
                             <p class="text-muted">Makanan Olahan</p>
@@ -511,10 +560,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="umkm-card">
                         <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Konveksi" class="ummg-img">
+                            alt="Konveksi" class="umkm-img">
                         <div class="p-4">
                             <h4>Konveksi Batik Madiun</h4>
                             <p class="text-muted">Tekstil & Fashion</p>
@@ -525,7 +574,7 @@
                 </div>
             </div>
 
-            <div class="text-center mt-5">
+            <div class="text-center mt-3">
                 <a href="#" class="btn btn-primary btn-lg">Lihat Semua UMKM</a>
             </div>
         </div>
@@ -540,13 +589,10 @@
                         <div class="quote-icon">
                             <i class="fas fa-quote-left"></i>
                         </div>
-                        <p class="quote-text">Kabupaten Madiun berkomitmen penuh menciptakan iklim investasi yang
-                            kondusif dengan pelayanan satu pintu, insentif menarik, dan dukungan penuh dari pemerintah
-                            daerah.</p>
+                        <p class="quote-text">Kabupaten Madiun berkomitmen penuh menciptakan iklim investasi yang kondusif dengan pelayanan satu pintu, insentif menarik, dan dukungan penuh dari pemerintah daerah.</p>
                         <div class="mt-4 d-flex align-items-center">
                             <div class="bg-white rounded-circle" style="width: 80px; height: 80px; overflow: hidden;">
-                                <img src="#"
-                                    alt="Bupati" class="img-fluid">
+                                <img src="#" alt="Bupati" class="img-fluid">
                             </div>
                             <div class="ms-3">
                                 <h4 class="mb-0">John Doe</h4>
@@ -564,8 +610,7 @@
                             </div>
                             <div>
                                 <h4 class="text-dark">Pelayanan Satu Pintu</h4>
-                                <p class="text-dark">Proses perizinan investasi yang cepat melalui sistem satu pintu
-                                    dengan waktu penyelesaian maksimal 3 hari kerja.</p>
+                                <p class="text-dark">Proses perizinan investasi yang cepat melalui sistem satu pintu dengan waktu penyelesaian maksimal 3 hari kerja.</p>
                             </div>
                         </div>
                         <div class="d-flex mb-4">
@@ -574,8 +619,7 @@
                             </div>
                             <div>
                                 <h4 class="text-dark">Insentif Investasi</h4>
-                                <p class="text-dark">Berbagai insentif fiskal dan non-fiskal untuk investasi di sektor
-                                    prioritas dengan nilai investasi minimal Rp 10 miliar.</p>
+                                <p class="text-dark">Berbagai insentif fiskal dan non-fiskal untuk investasi di sektor prioritas dengan nilai investasi minimal Rp 10 miliar.</p>
                             </div>
                         </div>
                         <div class="d-flex">
@@ -584,8 +628,7 @@
                             </div>
                             <div>
                                 <h4 class="text-dark">Pendampingan Investasi</h4>
-                                <p class="text-dark">Tim khusus pendamping investasi yang siap membantu mulai dari
-                                    tahap perencanaan hingga operasional.</p>
+                                <p class="text-dark">Tim khusus pendamping investasi yang siap membantu mulai dari tahap perencanaan hingga operasional.</p>
                             </div>
                         </div>
                         <div class="mt-4">
@@ -600,52 +643,43 @@
     <!-- FAQ -->
     <section id="faq" class="py-5">
         <div class="container py-5">
-            <h2 class="section-title text-center">Pertanyaan Umum</h2>
+            <h2 class="section-title">Pertanyaan Umum</h2>
             <p class="text-center mb-5">Temukan jawaban atas pertanyaan investor tentang berinvestasi di Madiun</p>
 
             <div class="accordion" id="faqAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                             Bagaimana proses perizinan investasi di Kabupaten Madiun?
                         </button>
                     </h2>
                     <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Kabupaten Madiun menerapkan sistem perizinan terintegrasi satu pintu (OSS) dengan proses
-                            maksimal 3 hari kerja untuk investasi di atas Rp 10 miliar. Tim khusus akan mendampingi
-                            investor selama proses perizinan.
+                            Kabupaten Madiun menerapkan sistem perizinan terintegrasi satu pintu (OSS) dengan proses maksimal 3 hari kerja untuk investasi di atas Rp 10 miliar. Tim khusus akan mendampingi investor selama proses perizinan.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                             Apa bentuk dukungan Pemkab bagi investor?
                         </button>
                     </h2>
                     <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Pemkab Madiun memberikan berbagai dukungan berupa: (1) Insentif pajak daerah, (2) Fasilitasi
-                            perizinan, (3) Penyediaan infrastruktur pendukung, (4) Pendampingan teknis, (5) Akses ke
-                            jaringan UMKM lokal.
+                            Pemkab Madiun memberikan berbagai dukungan berupa: (1) Insentif pajak daerah, (2) Fasilitasi perizinan, (3) Penyediaan infrastruktur pendukung, (4) Pendampingan teknis, (5) Akses ke jaringan UMKM lokal.
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                             Bagaimana kemudahan akses lokasi investasi?
                         </button>
                     </h2>
                     <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Kabupaten Madiun memiliki akses transportasi strategis dengan jarak tempuh 1 jam dari
-                            Bandara Internasional Juanda, terhubung jaringan tol Trans Jawa, dan memiliki jalur kereta
-                            api aktif. Semua kawasan industri memiliki akses jalan yang memadai.
+                            Kabupaten Madiun memiliki akses transportasi strategis dengan jarak tempuh 1 jam dari Bandara Internasional Juanda, terhubung jaringan tol Trans Jawa, dan memiliki jalur kereta api aktif. Semua kawasan industri memiliki akses jalan yang memadai.
                         </div>
                     </div>
                 </div>
@@ -658,18 +692,16 @@
     </section>
 
     <!-- Form Minat Investasi -->
-    <section id="kontak" class="contact-section py-5">
+    <section id="kontak" class="contact-section">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="section-title">Ajukan Minat Investasi</h2>
-                    <p>Isi formulir berikut untuk menghubungi tim investasi Kabupaten Madiun. Kami akan segera merespons
-                        permintaan Anda dalam waktu 1x24 jam.</p>
+                    <h2 class="section-title text-start">Ajukan Minat Investasi</h2>
+                    <p>Isi formulir berikut untuk menghubungi tim investasi Kabupaten Madiun. Kami akan segera merespons permintaan Anda dalam waktu 1x24 jam.</p>
 
                     <div class="mt-5">
                         <h4 class="mb-3">Kantor PMPTSP Kabupaten Madiun</h4>
-                        <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> Jl. Raya Madiun-Ponorogo Km. 6,
-                            Balerejo, Madiun</p>
+                        <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> Jl. Raya Madiun-Ponorogo Km. 6, Balerejo, Madiun</p>
                         <p><i class="fas fa-phone me-2 text-primary"></i> (0351) 461777</p>
                         <p><i class="fas fa-envelope me-2 text-primary"></i> invest@madiunkab.go.id</p>
 
@@ -711,8 +743,7 @@
                                     <textarea class="form-control" rows="4" placeholder="Pesan"></textarea>
                                 </div>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-lg">Kirim Minat
-                                        Investasi</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Kirim Minat Investasi</button>
                                 </div>
                                 <div class="text-center mt-3">
                                     <p class="mb-2">Atau hubungi kami melalui WhatsApp</p>
@@ -728,7 +759,6 @@
         </div>
     </section>
 
-
     <!-- Back to Top -->
     <a href="#" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -738,7 +768,6 @@
 @section('footer')
     <x-footer />
 @endsection
-
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -753,31 +782,12 @@
         }).addTo(map);
 
         // Add markers for potential locations
-        const locations = [{
-                lat: -7.6167,
-                lng: 111.5247,
-                title: 'Kawasan Industri Balerejo'
-            },
-            {
-                lat: -7.5900,
-                lng: 111.4500,
-                title: 'Sentra Agribisnis Dagangan'
-            },
-            {
-                lat: -7.6350,
-                lng: 111.5800,
-                title: 'Zona Ekonomi Kreatif Madiun'
-            },
-            {
-                lat: -7.6500,
-                lng: 111.5000,
-                title: 'Pelabuhan Kargo Saradan'
-            },
-            {
-                lat: -7.7000,
-                lng: 111.5500,
-                title: 'Kawasan Wisata Caruban'
-            }
+        const locations = [
+            { lat: -7.6167, lng: 111.5247, title: 'Kawasan Industri Balerejo' },
+            { lat: -7.5900, lng: 111.4500, title: 'Sentra Agribisnis Dagangan' },
+            { lat: -7.6350, lng: 111.5800, title: 'Zona Ekonomi Kreatif Madiun' },
+            { lat: -7.6500, lng: 111.5000, title: 'Pelabuhan Kargo Saradan' },
+            { lat: -7.7000, lng: 111.5500, title: 'Kawasan Wisata Caruban' }
         ];
 
         locations.forEach(loc => {
